@@ -48,13 +48,13 @@ The `body_class` method can be used like:
 
 This will produce a string including the controller name and controller-action name.  For example, The WidgetsController#show action would produce:
 
-    <body class="widgets widgets-show">
+    <body class="widgets widgets__show">
 
 Anything which has been added via `content_for(:extra_body_classes)` will be added to the end, for example:
 
-    content_for(:extra_body_classes, 'special-page')
+    content_for(:extra_body_classes, 'special--class')
     <body class="<%= body_class %>">
-    <body class="widgets widgets-show special-page">
+    <body class="widgets widgets__show special--class">
 
 ## How to contribute
 

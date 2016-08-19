@@ -7,7 +7,7 @@ describe BodyClassHelper, 'without any extra body classes', type: :helper do
       allow(helper).to receive(:controller).and_return(controller)
     end
     it "should return the correct names" do
-      expect(helper.body_class).to eq "widgets widgets-show"
+      expect(helper.body_class).to eq "widgets widgets__show"
     end
   end
   describe "body_class with a nested controller" do
@@ -16,7 +16,7 @@ describe BodyClassHelper, 'without any extra body classes', type: :helper do
       allow(helper).to receive(:controller).and_return(controller)
     end
     it "should return the correct names" do
-      expect(helper.body_class).to eq "module-widgets module-widgets-show"
+      expect(helper.body_class).to eq "module__widgets module__widgets__show"
     end
   end
 end
@@ -28,10 +28,10 @@ describe BodyClassHelper, 'with extra body classes', type: :helper do
     helper.content_for(:extra_body_classes, 'extra_class')
   end
   it "adds extra body classes to the controller classes" do
-    expect(helper.body_class).to eq 'widgets widgets-show extra_class'
+    expect(helper.body_class).to eq 'widgets widgets__show extra_class'
   end
   it "adds extra body classes to the controller classes when #content_for= is called many times" do
     helper.content_for(:extra_body_classes, ' many extra classes')
-    expect(helper.body_class).to eq 'widgets widgets-show extra_class many extra classes'
+    expect(helper.body_class).to eq 'widgets widgets__show extra_class many extra classes'
   end
 end
